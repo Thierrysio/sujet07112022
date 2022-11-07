@@ -13,7 +13,7 @@ namespace sujet07112022.Modeles
         private int _numero;
         private int _annee;
         private Club _leClub;
-
+        private Categorie _laCategorie;
         public static List<Licence> CollClasse = new List<Licence>();
 
         #endregion
@@ -55,9 +55,23 @@ namespace sujet07112022.Modeles
         {
             _leClub = param;
         }
+        public Categorie GetLaCategorie()
+        {
+            return _laCategorie;
+        }
+
+        public void SetLaCategorie(Categorie param)
+        {
+            _laCategorie = param;
+        }
         #endregion
 
         #region Methodes
+
+        public LigueRegionale GetLaLigue()
+        {
+            return this.GetLeClub().GetLaLigueRegionale();
+        }
 
         #endregion
     }

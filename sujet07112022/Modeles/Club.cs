@@ -63,6 +63,14 @@ namespace sujet07112022.Modeles
         {
             _email = param;
         }
+        public List<Licence> GetLesLicences()
+        {
+            return _lesLicences;
+        }
+        public void SetLesLicences(List<Licence> param)
+        {
+            _lesLicences = param;
+        }
         public LigueRegionale GetLaLigueRegionale()
         {
             return _laLigueRegionale;

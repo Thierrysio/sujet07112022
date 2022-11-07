@@ -121,6 +121,18 @@ namespace sujet07112022.Modeles
             return resultat;
         }
 
+        public List<Licence> GetLesLicences()
+        {
+            List<Licence> resultat = new List<Licence>();
+            foreach(Club unClub in this.GetLesClubs())
+            {
+                foreach(Licence uneLicence in unClub.GetLesLicences())
+                {
+                    resultat.Add(uneLicence);
+                }
+            }
+            return resultat;
+        }
         #endregion
     }
 }
