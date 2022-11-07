@@ -16,7 +16,7 @@ namespace sujet07112022.Modeles
         private string _nom;
         private string _adresse;
         private string _email;
-
+        private List<Club> _lesClubs; // declaration de l'objet List<>
 
         #endregion
 
@@ -25,12 +25,13 @@ namespace sujet07112022.Modeles
         public LigueRegionale()
         {
             LigueRegionale.CollClasse.Add(this);
+            _lesClubs = new List<Club>();
         }
 
         public LigueRegionale(string nom, string adresse, string email)
         {
             _code = 1;
-            Nom = nom;
+            _nom = nom;
             _adresse = adresse;
             _email = email;
         }
@@ -81,6 +82,15 @@ namespace sujet07112022.Modeles
             _email = param;
         }
 
+        public List<Club> GetLesClubs()
+        {
+            return _lesClubs;
+        }
+        public void SetLesClubs(List<Club> param)
+        {
+            _lesClubs = param;
+        }
+
         #endregion
 
         #region Methodes
@@ -90,6 +100,24 @@ namespace sujet07112022.Modeles
             int resultat = 0;
             // codage pour ajouter au code de l'objet courant (this) le param et le deverser dans resultat
             resultat = this.GetCode() + param;
+            return resultat;
+        }
+
+        public void AjouterClub(Club param)
+        {
+            this._lesClubs.Add(param);
+        }
+
+        public List<Club> GetListeClubsParVille(string param)
+        {
+            List<Club> resultat = new List<Club>();
+            foreach(Club unClub in this.GetLesClubs())
+            {
+                if(unClub.GetAdresse().Equals(param))
+                {
+                    resultat.Add(unClub);
+                }
+            }
             return resultat;
         }
 
